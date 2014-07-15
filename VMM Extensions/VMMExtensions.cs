@@ -20,31 +20,78 @@ namespace VMM_Extensions
     {
         public override void PerformAction(IList<ContextObject> contextObjects)
         {
-            //string CustomPropScript = 
-            //    string.Format(
-            //"if (!(Get-SCCustomProperty -Name VMPath)) {New-SCCustomProperty -Name VMPath -Description 'Virtual Machine Configuration Path' -AddMember @('VM')}"
-            //);
-
-            //this.PowerShellContext.ExecuteScript(CustomPropScript);
-
             foreach (var contextObject in contextObjects)
             {
+                Guid jobguid = System.Guid.NewGuid();
 
-                string getScript =
-                    string.Format(
-                        "$prop = Get-SCCustomProperty -Name 'VMPath';" +
-                        "$vm = Get-SCVirtualMachine -ID {0};" +
-                        "$location = $vm.Location;" +
-                        "$vm | Set-SCCustomPropertyValue -CustomProperty $prop -Value $location | out-null",
-                        contextObject.ID);
+                string UpdateScript = @"
+                    $vm = Get-SCVirtualMachine -ID VMID
+                    $jobguid = [system.guid]::newguid()
+                    $prop = Get-SCCustomProperty -Name 'VMPath'
+                    $location = $vm.Location
+                    $customProp = $vm | Get-SCCustomPropertyValue -CustomProperty $prop
+                    if ($customProp.Value -ne $location)
+                    {
+                        $vm | Set-SCCustomPropertyValue -CustomProperty $prop -Value $location -RunAsynchronously | out-null
+                    }
+                    
+                    $prop = Get-SCCustomProperty -Name 'Mounted ISO'
+                    $dvd = $vm | Get-SCVirtualDVDDrive
+                    $customProp = $vm | Get-SCCustomPropertyValue -CustomProperty $prop
+                    if ($dvd.Iso)
+                    {
+                        if ($customProp.Value -ne ($dvd.ISO.Name))
+                        {
+                            $vm | Set-SCCustomPropertyValue -CustomProperty $prop -Value ($dvd.ISO.Name) -RunAsynchronously  | out-null
+                        }
+	                    
+                    }
+                    Else
+                    {
+	                    
+                        if ($customProp)
+                        {
+                            Remove-SCCustomPropertyValue -CustomPropertyValue $customProp | out-null
+                        }
+	                    
+                    }
+                ";
+
+                string UpdateScriptFormatted =
+                    UpdateScript.Replace("VMID", contextObject.ID.ToString());
+                    //string.Format(UpdateScript,contextObject.ID);
+
 
                 Runspace runspace = RunspaceFactory.CreateRunspace();
                 runspace.Open();
                 Pipeline pipeline = runspace.CreatePipeline();
-                pipeline.Commands.AddScript(getScript);
-                pipeline.Invoke();
+                pipeline.Commands.AddScript(UpdateScriptFormatted);
+                var result = pipeline.Invoke();
 
             }
         }
+    }
+
+    public class VMMExtensionLoader : VmmAddInBase
+    {
+        //Setup the stuff when the add-in loads
+        public virtual void OnLoad()
+        {
+            string CustomPropScript = @"
+                if (!(Get-SCCustomProperty -Name VMPath))
+                    {New-SCCustomProperty -Name VMPath -Description 'Virtual Machine Configuration Path' -AddMember @('VM')}
+                if (!(Get-SCCustomProperty -Name 'Mounted ISO'))
+                    {New-SCCustomProperty -Name 'Mounted ISO' -Description 'Virtual Machine Mounted ISO Path Path' -AddMember @('VM')}
+                ";
+
+            Runspace configrunspace = RunspaceFactory.CreateRunspace();
+            configrunspace.Open();
+            Pipeline configpipeline = configrunspace.CreatePipeline();
+            configpipeline.Commands.AddScript(CustomPropScript);
+            configpipeline.Invoke();
+            configrunspace.Close();
+            configrunspace.Dispose();
+        }
+
     }
 }

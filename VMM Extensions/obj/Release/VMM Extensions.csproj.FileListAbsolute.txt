@@ -87,4 +87,4 @@ C:\Users\trohin_admin\Documents\Visual Studio 2013\Projects\VMM Extensions\VMM E
 C:\Users\trohin_admin\Documents\Visual Studio 2013\Projects\VMM Extensions\VMM Extensions\bin\Release\zh-TW\Errors.resources.dll
 C:\Users\trohin_admin\Documents\Visual Studio 2013\Projects\VMM Extensions\VMM Extensions\obj\Release\VMM Extensions.dll
 C:\Users\trohin_admin\Documents\Visual Studio 2013\Projects\VMM Extensions\VMM Extensions\obj\Release\VMM Extensions.pdb
-C:\Users\trohin_admin\Documents\Visual Studio 2013\Projects\VMM Extensions\VMM Extensions\obj\Release\VMM Extensions.csprojResolveAssemblyReference.cache
+C:\Users\trohin_admin\Documents\Visual Studio 2013\Projects\VMM Extensions\VMM Extensions\bin\Release\manifest.xml

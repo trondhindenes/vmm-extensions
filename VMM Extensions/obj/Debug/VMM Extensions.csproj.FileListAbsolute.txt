@@ -1,4 +1,3 @@
-C:\Users\trohin_admin\Documents\Visual Studio 2013\Projects\VMM Extensions\VMM Extensions\obj\Debug\VMM Extensions.csprojResolveAssemblyReference.cache
 C:\Users\trohin_admin\Documents\Visual Studio 2013\Projects\VMM Extensions\VMM Extensions\bin\Debug\VMM Extensions.dll
 C:\Users\trohin_admin\Documents\Visual Studio 2013\Projects\VMM Extensions\VMM Extensions\bin\Debug\VMM Extensions.pdb
 C:\Users\trohin_admin\Documents\Visual Studio 2013\Projects\VMM Extensions\VMM Extensions\bin\Debug\Microsoft.SystemCenter.VirtualMachineManager.dll
@@ -88,3 +87,4 @@ C:\Users\trohin_admin\Documents\Visual Studio 2013\Projects\VMM Extensions\VMM E
 C:\Users\trohin_admin\Documents\Visual Studio 2013\Projects\VMM Extensions\VMM Extensions\bin\Debug\zh-TW\Errors.resources.dll
 C:\Users\trohin_admin\Documents\Visual Studio 2013\Projects\VMM Extensions\VMM Extensions\obj\Debug\VMM Extensions.dll
 C:\Users\trohin_admin\Documents\Visual Studio 2013\Projects\VMM Extensions\VMM Extensions\obj\Debug\VMM Extensions.pdb
+C:\Users\trohin_admin\Documents\Visual Studio 2013\Projects\VMM Extensions\VMM Extensions\bin\Debug\manifest.xml
