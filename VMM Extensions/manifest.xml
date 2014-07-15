@@ -1,0 +1,19 @@
+﻿<ConsoleAddIn
+  xmlns="urn:VMM-AddIns-v1"
+  Name="VMM Extensions"
+  Version="1.0.0.1"
+  Author="Trond Hindenes, Crayon AS"
+  Description="Extensions for VMM 2012R2"
+  FolderName="VMMExtensions">
+  <ActionAddIn
+    Name="Get VM Paths"
+    Contexts="VM"
+    ShowInContextMenu="False"
+    AssemblyName="VMM Extensions"
+    ActionType="Code">
+    <ButtonLabel>
+      Get VM Paths
+    </ButtonLabel>
+  </ActionAddIn>
+</ConsoleAddIn>
+
