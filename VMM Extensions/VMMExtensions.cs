@@ -18,13 +18,29 @@ namespace VMM_Extensions
     [AddIn("Get VM Paths")]
     public class VMMExtensions : ActionAddInBase
     {
+
         public override void PerformAction(IList<ContextObject> contextObjects)
         {
+
+            string CustomPropScript = @"
+                if (!(Get-SCCustomProperty -Name VMPath))
+                    {New-SCCustomProperty -Name VMPath -Description 'Virtual Machine Configuration Path' -AddMember @('VM')}
+                if (!(Get-SCCustomProperty -Name 'Mounted ISO'))
+                    {New-SCCustomProperty -Name 'Mounted ISO' -Description 'Virtual Machine Mounted ISO Path Path' -AddMember @('VM')}
+                ";
+
+            this.PowerShellContext.ExecuteScript(CustomPropScript);
+
             foreach (var contextObject in contextObjects)
             {
                 Guid jobguid = System.Guid.NewGuid();
 
                 string UpdateScript = @"
+                    if (!(Get-SCCustomProperty -Name VMPath))
+                    {New-SCCustomProperty -Name VMPath -Description 'Virtual Machine Configuration Path' -AddMember @('VM')}
+                    if (!(Get-SCCustomProperty -Name 'Mounted ISO'))
+                    {New-SCCustomProperty -Name 'Mounted ISO' -Description 'Virtual Machine Mounted ISO Path Path' -AddMember @('VM')}
+
                     $vm = Get-SCVirtualMachine -ID VMID
                     $jobguid = [system.guid]::newguid()
                     $prop = Get-SCCustomProperty -Name 'VMPath'
@@ -61,37 +77,16 @@ namespace VMM_Extensions
                     UpdateScript.Replace("VMID", contextObject.ID.ToString());
                     //string.Format(UpdateScript,contextObject.ID);
 
+                this.PowerShellContext.ExecuteScript(UpdateScriptFormatted);
 
-                Runspace runspace = RunspaceFactory.CreateRunspace();
-                runspace.Open();
-                Pipeline pipeline = runspace.CreatePipeline();
-                pipeline.Commands.AddScript(UpdateScriptFormatted);
-                var result = pipeline.Invoke();
+                //Runspace runspace = RunspaceFactory.CreateRunspace();
+                //runspace.Open();
+                //Pipeline pipeline = runspace.CreatePipeline();
+                //pipeline.Commands.AddScript(UpdateScriptFormatted);
+                //var result = pipeline.Invoke();
 
             }
         }
     }
 
-    public class VMMExtensionLoader : VmmAddInBase
-    {
-        //Setup the stuff when the add-in loads
-        public virtual void OnLoad()
-        {
-            string CustomPropScript = @"
-                if (!(Get-SCCustomProperty -Name VMPath))
-                    {New-SCCustomProperty -Name VMPath -Description 'Virtual Machine Configuration Path' -AddMember @('VM')}
-                if (!(Get-SCCustomProperty -Name 'Mounted ISO'))
-                    {New-SCCustomProperty -Name 'Mounted ISO' -Description 'Virtual Machine Mounted ISO Path Path' -AddMember @('VM')}
-                ";
-
-            Runspace configrunspace = RunspaceFactory.CreateRunspace();
-            configrunspace.Open();
-            Pipeline configpipeline = configrunspace.CreatePipeline();
-            configpipeline.Commands.AddScript(CustomPropScript);
-            configpipeline.Invoke();
-            configrunspace.Close();
-            configrunspace.Dispose();
-        }
-
-    }
 }
