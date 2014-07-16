@@ -9,8 +9,9 @@
     Name="Get VM Paths"
     Contexts="VM"
     ShowInContextMenu="False"
-    AssemblyName="VMM Extensions"
-    ActionType="Code">
+    AssemblyName="VMMExtensions"
+    ActionType="Code"
+    Icon="Oxygen-Places-server-database.ico">
     <ButtonLabel>
       Get VM Paths
     </ButtonLabel>

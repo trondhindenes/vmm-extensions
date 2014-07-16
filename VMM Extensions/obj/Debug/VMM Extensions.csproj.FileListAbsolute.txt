@@ -1,5 +1,3 @@
-C:\Users\trohin_admin\Documents\Visual Studio 2013\Projects\VMM Extensions\VMM Extensions\bin\Debug\VMM Extensions.dll
-C:\Users\trohin_admin\Documents\Visual Studio 2013\Projects\VMM Extensions\VMM Extensions\bin\Debug\VMM Extensions.pdb
 C:\Users\trohin_admin\Documents\Visual Studio 2013\Projects\VMM Extensions\VMM Extensions\bin\Debug\Microsoft.SystemCenter.VirtualMachineManager.dll
 C:\Users\trohin_admin\Documents\Visual Studio 2013\Projects\VMM Extensions\VMM Extensions\bin\Debug\Microsoft.SystemCenter.VirtualMachineManager.UIAddIns.ContextTypes.dll
 C:\Users\trohin_admin\Documents\Visual Studio 2013\Projects\VMM Extensions\VMM Extensions\bin\Debug\Microsoft.SystemCenter.VirtualMachineManager.UIAddIns.dll
@@ -85,6 +83,8 @@ C:\Users\trohin_admin\Documents\Visual Studio 2013\Projects\VMM Extensions\VMM E
 C:\Users\trohin_admin\Documents\Visual Studio 2013\Projects\VMM Extensions\VMM Extensions\bin\Debug\zh-CHS\Errors.resources.dll
 C:\Users\trohin_admin\Documents\Visual Studio 2013\Projects\VMM Extensions\VMM Extensions\bin\Debug\zh-HK\Errors.resources.dll
 C:\Users\trohin_admin\Documents\Visual Studio 2013\Projects\VMM Extensions\VMM Extensions\bin\Debug\zh-TW\Errors.resources.dll
-C:\Users\trohin_admin\Documents\Visual Studio 2013\Projects\VMM Extensions\VMM Extensions\obj\Debug\VMM Extensions.dll
-C:\Users\trohin_admin\Documents\Visual Studio 2013\Projects\VMM Extensions\VMM Extensions\obj\Debug\VMM Extensions.pdb
 C:\Users\trohin_admin\Documents\Visual Studio 2013\Projects\VMM Extensions\VMM Extensions\bin\Debug\manifest.xml
+C:\Users\trohin_admin\Documents\Visual Studio 2013\Projects\VMM Extensions\VMM Extensions\bin\Debug\VMMExtensions.dll
+C:\Users\trohin_admin\Documents\Visual Studio 2013\Projects\VMM Extensions\VMM Extensions\bin\Debug\VMMExtensions.pdb
+C:\Users\trohin_admin\Documents\Visual Studio 2013\Projects\VMM Extensions\VMM Extensions\obj\Debug\VMMExtensions.dll
+C:\Users\trohin_admin\Documents\Visual Studio 2013\Projects\VMM Extensions\VMM Extensions\obj\Debug\VMMExtensions.pdb

@@ -1,5 +1,3 @@
-C:\Users\trohin_admin\Documents\Visual Studio 2013\Projects\VMM Extensions\VMM Extensions\bin\Release\VMM Extensions.dll
-C:\Users\trohin_admin\Documents\Visual Studio 2013\Projects\VMM Extensions\VMM Extensions\bin\Release\VMM Extensions.pdb
 C:\Users\trohin_admin\Documents\Visual Studio 2013\Projects\VMM Extensions\VMM Extensions\bin\Release\Microsoft.SystemCenter.VirtualMachineManager.dll
 C:\Users\trohin_admin\Documents\Visual Studio 2013\Projects\VMM Extensions\VMM Extensions\bin\Release\Microsoft.SystemCenter.VirtualMachineManager.UIAddIns.ContextTypes.dll
 C:\Users\trohin_admin\Documents\Visual Studio 2013\Projects\VMM Extensions\VMM Extensions\bin\Release\Microsoft.SystemCenter.VirtualMachineManager.UIAddIns.dll
@@ -85,6 +83,9 @@ C:\Users\trohin_admin\Documents\Visual Studio 2013\Projects\VMM Extensions\VMM E
 C:\Users\trohin_admin\Documents\Visual Studio 2013\Projects\VMM Extensions\VMM Extensions\bin\Release\zh-CHS\Errors.resources.dll
 C:\Users\trohin_admin\Documents\Visual Studio 2013\Projects\VMM Extensions\VMM Extensions\bin\Release\zh-HK\Errors.resources.dll
 C:\Users\trohin_admin\Documents\Visual Studio 2013\Projects\VMM Extensions\VMM Extensions\bin\Release\zh-TW\Errors.resources.dll
-C:\Users\trohin_admin\Documents\Visual Studio 2013\Projects\VMM Extensions\VMM Extensions\obj\Release\VMM Extensions.dll
-C:\Users\trohin_admin\Documents\Visual Studio 2013\Projects\VMM Extensions\VMM Extensions\obj\Release\VMM Extensions.pdb
 C:\Users\trohin_admin\Documents\Visual Studio 2013\Projects\VMM Extensions\VMM Extensions\bin\Release\manifest.xml
+C:\Users\trohin_admin\Documents\Visual Studio 2013\Projects\VMM Extensions\VMM Extensions\bin\Release\VMMExtensions.dll
+C:\Users\trohin_admin\Documents\Visual Studio 2013\Projects\VMM Extensions\VMM Extensions\bin\Release\VMMExtensions.pdb
+C:\Users\trohin_admin\Documents\Visual Studio 2013\Projects\VMM Extensions\VMM Extensions\obj\Release\VMMExtensions.dll
+C:\Users\trohin_admin\Documents\Visual Studio 2013\Projects\VMM Extensions\VMM Extensions\obj\Release\VMMExtensions.pdb
+C:\Users\trohin_admin\Documents\Visual Studio 2013\Projects\VMM Extensions\VMM Extensions\bin\Release\Oxygen-Places-server-database.ico

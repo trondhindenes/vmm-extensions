@@ -1,20 +1,21 @@
-﻿using Microsoft.SystemCenter.VirtualMachineManager.UIAddIns;
+﻿
+using Microsoft.SystemCenter.VirtualMachineManager.UIAddIns;
+using Microsoft.SystemCenter.VirtualMachineManager.UIAddIns.ContextTypes;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.AddIn;
-using Microsoft.SystemCenter.VirtualMachineManager.UIAddIns.ContextTypes;
-using Microsoft.SystemCenter.VirtualMachineManager;
-using System.Management.Automation;
-using System.Management.Automation.Runspaces;
-using System.Windows.Forms;
+
+//using Microsoft.SystemCenter.VirtualMachineManager;
+//using System.Management.Automation;
+//using System.Management.Automation.Runspaces;
+//using System.Windows.Forms;
 
 
 
-namespace VMM_Extensions
-{
+
     [AddIn("Get VM Paths")]
     public class VMMExtensions : ActionAddInBase
     {
@@ -89,4 +90,4 @@ namespace VMM_Extensions
         }
     }
 
-}
+
