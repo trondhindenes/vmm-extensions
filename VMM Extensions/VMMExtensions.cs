@@ -28,6 +28,8 @@ using System.AddIn;
                     {New-SCCustomProperty -Name VMPath -Description 'Virtual Machine Configuration Path' -AddMember @('VM')}
                 if (!(Get-SCCustomProperty -Name 'Mounted ISO'))
                     {New-SCCustomProperty -Name 'Mounted ISO' -Description 'Virtual Machine Mounted ISO Path Path' -AddMember @('VM')}
+                if (!(Get-SCCustomProperty -Name 'IP Address'))
+                    {New-SCCustomProperty -Name 'IP Address' -Description 'First IP address of first adapter' -AddMember @('VM')}
                 ";
 
             this.PowerShellContext.ExecuteScript(CustomPropScript);
@@ -41,6 +43,8 @@ using System.AddIn;
                     {New-SCCustomProperty -Name VMPath -Description 'Virtual Machine Configuration Path' -AddMember @('VM')}
                     if (!(Get-SCCustomProperty -Name 'Mounted ISO'))
                     {New-SCCustomProperty -Name 'Mounted ISO' -Description 'Virtual Machine Mounted ISO Path Path' -AddMember @('VM')}
+                    if (!(Get-SCCustomProperty -Name 'IP Address'))
+                    {New-SCCustomProperty -Name 'IP Address' -Description 'First IP address of first adapter' -AddMember @('VM')}
 
                     $vm = Get-SCVirtualMachine -ID VMID
                     $jobguid = [system.guid]::newguid()
@@ -60,6 +64,28 @@ using System.AddIn;
                         if ($customProp.Value -ne ($dvd.ISO.Name))
                         {
                             $vm | Set-SCCustomPropertyValue -CustomProperty $prop -Value ($dvd.ISO.Name) -RunAsynchronously  | out-null
+                        }
+	                    
+                    }
+                    Else
+                    {
+	                    
+                        if ($customProp)
+                        {
+                            Remove-SCCustomPropertyValue -CustomPropertyValue $customProp | out-null
+                        }
+	                    
+                    }
+
+
+                    $prop = Get-SCCustomProperty -Name 'IP Address'
+                    $nic = $vm | Get-SCVirtualNetworkAdapter
+                    $customProp = $vm | Get-SCCustomPropertyValue -CustomProperty $prop
+                    if ($nic.IPv4Addresses)
+                    {
+                        if ($customProp.Value -ne ($nic.IPv4Addresses[0]))
+                        {
+                            $vm | Set-SCCustomPropertyValue -CustomProperty $prop -Value ($nic.IPv4Addresses[0]) -RunAsynchronously  | out-null
                         }
 	                    
                     }
