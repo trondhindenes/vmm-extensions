@@ -83,9 +83,9 @@ using System.AddIn;
                     $customProp = $vm | Get-SCCustomPropertyValue -CustomProperty $prop
                     if ($nic.IPv4Addresses)
                     {
-                        if ($customProp.Value -ne ($nic.IPv4Addresses[0]))
+                        if ($customProp.Value -ne ($nic[0].IPv4Addresses[0]))
                         {
-                            $vm | Set-SCCustomPropertyValue -CustomProperty $prop -Value ($nic.IPv4Addresses[0]) -RunAsynchronously  | out-null
+                            $vm | Set-SCCustomPropertyValue -CustomProperty $prop -Value ($nic[0].IPv4Addresses[0]) -RunAsynchronously  | out-null
                         }
 	                    
                     }
