@@ -90,3 +90,4 @@ C:\Users\trohin_admin\Documents\Visual Studio 2013\Projects\VMM Extensions\VMM E
 C:\Users\trohin_admin\Documents\Visual Studio 2013\Projects\VMM Extensions\VMM Extensions\obj\Release\VMMExtensions.pdb
 C:\Users\trohin_admin\Documents\Visual Studio 2013\Projects\VMM Extensions\VMM Extensions\bin\Release\Oxygen-Places-server-database.ico
 C:\Users\trohin_admin\Documents\Visual Studio 2013\Projects\VMM Extensions\VMM Extensions\obj\Release\VMM Extensions.csprojResolveAssemblyReference.cache
+C:\Users\trohin_admin\Documents\Visual Studio 2013\Projects\VMM Extensions\VMM Extensions\bin\Release\copy.ico

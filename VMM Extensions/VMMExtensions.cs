@@ -14,10 +14,30 @@ using System.AddIn;
 //using System.Windows.Forms;
 
 
+    [AddIn("Copy VM Name")]
+    public class VMMExtensionsCopyVMName : ActionAddInBase
+    {
+        public override void PerformAction(IList<ContextObject> contextObjects)
+        {
+            var contextObject = contextObjects[0];
 
+            string CopyVmNameScript = @"
+                $vm = Get-SCVirtualMachine -ID VMID
+                $vmname = $vm.name
+                $vmname | clip.exe
+            ";
 
-    [AddIn("Get VM Paths")]
-    public class VMMExtensions : ActionAddInBase
+            string CopyVmNameScriptFormatted =
+                    CopyVmNameScript.Replace("VMID", contextObject.ID.ToString());
+            //string.Format(UpdateScript,contextObject.ID);
+
+            this.PowerShellContext.ExecuteScript(CopyVmNameScriptFormatted);
+
+        }
+    }
+
+    [AddIn("Get VM Details")]
+    public class VMMExtensionsGetVMDetails : ActionAddInBase
     {
 
         public override void PerformAction(IList<ContextObject> contextObjects)

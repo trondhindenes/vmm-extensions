@@ -6,14 +6,25 @@
   Description="Extensions for VMM 2012R2"
   FolderName="VMMExtensions">
   <ActionAddIn
-    Name="Get VM Paths"
+    Name="Get VM Details"
     Contexts="VM"
     ShowInContextMenu="False"
     AssemblyName="VMMExtensions"
     ActionType="Code"
     Icon="Oxygen-Places-server-database.ico">
     <ButtonLabel>
-      Get VM Paths
+      Get VM Details
+    </ButtonLabel>
+  </ActionAddIn>
+  <ActionAddIn
+    Name="Copy VM Name"
+    Contexts="VM"
+    ShowInContextMenu="True"
+    AssemblyName="VMMExtensions"
+    ActionType="Code"
+     Icon="copy.ico">
+    <ButtonLabel>
+      Copy VM Name
     </ButtonLabel>
   </ActionAddIn>
 </ConsoleAddIn>
