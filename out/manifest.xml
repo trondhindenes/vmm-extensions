@@ -1,7 +1,7 @@
 ﻿<ConsoleAddIn
   xmlns="urn:VMM-AddIns-v1"
   Name="VMM Extensions"
-  Version="1.0.0.3"
+  Version="1.0.0.4"
   Author="Trond Hindenes, Crayon AS"
   Description="Extensions for VMM 2012R2"
   FolderName="VMMExtensions">

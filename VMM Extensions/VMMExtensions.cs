@@ -50,6 +50,8 @@ using System.AddIn;
                     {New-SCCustomProperty -Name 'Mounted ISO' -Description 'Virtual Machine Mounted ISO Path Path' -AddMember @('VM')}
                 if (!(Get-SCCustomProperty -Name 'IP Address'))
                     {New-SCCustomProperty -Name 'IP Address' -Description 'First IP address of first adapter' -AddMember @('VM')}
+                if (!(Get-SCCustomProperty -Name 'Checkpoints'))
+                    {New-SCCustomProperty -Name 'Checkpoints' -Description 'Number of checkpoints on the VM' -AddMember @('VM')}
                 ";
 
             this.PowerShellContext.ExecuteScript(CustomPropScript);
@@ -118,6 +120,22 @@ using System.AddIn;
                         }
 	                    
                     }
+
+                    $prop = Get-SCCustomProperty -Name 'Checkpoints'
+                    $chk = $vm | Get-ScVmCheckpoint
+                    if ($chk)
+                        {
+                            $chkCount = $chk.count
+                        }
+                    Else
+                        {
+                            $chkCount = 0
+                        }
+                    $customProp = $vm | Get-SCCustomPropertyValue -CustomProperty $prop
+	                if ($customProp.Value -ne $chkCount)
+                        {
+                            $vm | Set-SCCustomPropertyValue -CustomProperty $prop -Value $chkCount -RunAsynchronously  | out-null
+                        }
                 ";
 
                 string UpdateScriptFormatted =
