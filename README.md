@@ -2,7 +2,8 @@ vmm-extensions
 ==============
 
 Small utils for VMM 2012R2 in the form of a VMM console Add-In.
-Install by importing the zip file in the "out" folder into your VMM console
+
+Install by importing the zip file in the "out" folder into your VMM console. (You may have to run VMM as admin in order to install the extension)
 
 See blog post at http://hindenes.com/trondsworking/2014/07/17/vmm-extensions/ for further details.
 
